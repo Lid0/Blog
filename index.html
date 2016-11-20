@@ -249,9 +249,31 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page &quot;categories&quot;</div></pre></td></tr></table></figure>
 <p>​    然后修改页面(index.md)中的配置参数，加入几个新的标签，如下：（这个主题的标签属性叫layout，其他主题可能会不一样）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Categories</div><div class="line">date: 2016-08-16 15:00:44</div><div class="line">layout: &quot;categories&quot;</div><div class="line">comments: false</div><div class="line">---</div></pre></td></tr></table></figure>
-<p>这样页面才会按照Categories的方式生成，Tags和About页面同理。</p>
-<h2 id="三、发布到Github"><a href="#三、发布到Github" class="headerlink" title="三、发布到Github"></a>三、发布到Github</h2><p>参考资料：</p>
+<p>​    这样页面才会按照Categories的方式生成，Tags和About页面同理。</p>
+<h2 id="三、发布到Github"><a href="#三、发布到Github" class="headerlink" title="三、发布到Github"></a>三、发布到Github</h2><p>​    首先，要注册一个github账号，新建一个仓库（new repsoitory）。</p>
+<p>​    如果你的博客根目录下没有.git文件夹，那么要在根目录下git初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure>
+<p>​    下面要让本地的git和远程仓库建立联系，利用SSH keys。</p>
+<p>​    先来检查本地是否有SSH-key，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -ah ~/.ssh</div></pre></td></tr></table></figure>
+<p>​    如果本地没有SSH就要生成新的SSH key：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-key -t rsa -C &quot;(你的邮箱地址)&quot;</div></pre></td></tr></table></figure>
+<p>​    生成SSH key后，将用户路径下的/.ssh/id_rsa.pub文件中的内容复制到github设置中，在Github的Settings中，选择SSH and GPG keys，新建一个ssh key将刚刚生成的id_rsa.pub的内容复制到key中。这样就建立好了本地和远程的链接配置。</p>
+<p>​    接下来要在blog总的配置文件_config.yml中进行配置，这样每次用hexo deploy(hexo d)就可以将Blog上传到github:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/Lid0/Blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>​    repo字段就是仓库的地址，如果不清楚在github的仓库中就可以找到：</p>
+<p><img src="/gallery/blog1-1.jpg" alt=""></p>
+<p>​    全部配置好了既可以使用hexo的命令上传了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div><div class="line">#hexo d</div></pre></td></tr></table></figure>
+<p>​    </p>
+<h2 id="四、Trouble-shooting"><a href="#四、Trouble-shooting" class="headerlink" title="四、Trouble shooting"></a>四、Trouble shooting</h2><p>​    搭好博客后遇到了一个没有加载css的问题，原因是仓库的名称不是(ID).github.io，这样在地址中就会多了一个路径如：lid0.github.io/blog/(多了一级Blog)，这是就要同时修改_config.yml中的URL部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://lid0.github.io</div><div class="line">root: /Blog/</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
+<p>​    把root改成/Blog/，这样css生成的路径就会和上传后的路径吻合了。</p>
+<p>​    以上是我搭博客时踩过的一些坑，因为第一次搭，所以没啥经验。如果有哪些地方写的不对，还请大神们指教。</p>
+<p>参考资料：</p>
+<p><a href="https://hexo.io/docs/" target="_blank" rel="external">https://hexo.io/docs/</a></p>
 <p><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">http://www.jianshu.com/p/858ecf233db9</a></p>
+<p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">http://www.jianshu.com/p/05289a4bc8b2</a></p>
 
       
     </div>
