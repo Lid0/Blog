@@ -9,15 +9,37 @@
   
   
   
-  <meta name="description" content="SECURITY &amp; READING">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: 字符编码date: 2017-5-25 12:30:00comments: truetags: [WEB]categories:
+
+Tec
+
+0x1 综述​    编码就是要将字符集映射到数字上，这样可以使计算机可以通过数字标识来知道其表示的字符。
+字符集​    常见的字符集有大家熟悉的，ascII字符集，latin1字符集，gb2312字符集，gbk字符集，unicode字符集。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="spike's blog">
-<meta property="og:url" content="https://lid0.github.io/blog/index.html">
+<meta property="og:url" content="https://lid0.github.io/blog/2017/05/25/编码/index.html">
 <meta property="og:site_name" content="spike's blog">
-<meta property="og:description" content="SECURITY &amp; READING">
+<meta property="og:description" content="title: 字符编码date: 2017-5-25 12:30:00comments: truetags: [WEB]categories:
+
+Tec
+
+0x1 综述​    编码就是要将字符集映射到数字上，这样可以使计算机可以通过数字标识来知道其表示的字符。
+字符集​    常见的字符集有大家熟悉的，ascII字符集，latin1字符集，gb2312字符集，gbk字符集，unicode字符集。">
+<meta property="og:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\ascII.jpg">
+<meta property="og:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\latin1.png">
+<meta property="og:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\utf-8.1.jpg">
+<meta property="og:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\utf-8.2.jpg">
+<meta property="og:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\BOM.jpg">
+<meta property="og:updated_time" content="2017-05-25T06:55:23.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spike's blog">
-<meta name="twitter:description" content="SECURITY &amp; READING">
+<meta name="twitter:description" content="title: 字符编码date: 2017-5-25 12:30:00comments: truetags: [WEB]categories:
+
+Tec
+
+0x1 综述​    编码就是要将字符集映射到数字上，这样可以使计算机可以通过数字标识来知道其表示的字符。
+字符集​    常见的字符集有大家熟悉的，ascII字符集，latin1字符集，gb2312字符集，gbk字符集，unicode字符集。">
+<meta name="twitter:image" content="https://lid0.github.io/blog/C:\Users\Merlin\Desktop\编码\images\ascII.jpg">
   
     <link rel="alternate" href="/atom.xml" title="spike&#39;s blog" type="application/atom+xml">
   
@@ -42,9 +64,11 @@
   <link rel="stylesheet" href="/blog/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/blog/css/home.css" >
+    <link rel="stylesheet" href="/blog/css/dialog.css">
   
 
+  
+    <link rel="stylesheet" href="/blog/css/header-post.css" >
   
 
   
@@ -53,121 +77,99 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
-  
-    <header id="header">
-
-  
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
-    <script>
-        var imgUrls = "css/images/home-bg3.jpg".split(",");
-        var random = Math.floor((Math.random() * imgUrls.length ));
-        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-          document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
-        } else {
-          document.getElementById("intrologo").style.backgroundImage='url(/blog/' + imgUrls[random] + ')';
-        }
-    </script>
-  
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
-
-        
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">spike&#39;s blog</a></h1>
-            <h3>SECURITY &amp; READING</h3>
-            <h5>_</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-    <script>
-        var img = new Image();
-        var intrologodiv = document.getElementById("intrologo");
-        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
-        img.onload=function(){
-          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
-            intrologodiv.style.backgroundSize = "100% auto";
-          } else {
-            intrologodiv.style.backgroundSize = "auto 100%";
-          }
-        };
-    </script>
- 
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/blog/">首页</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/blog/archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/blog/categories">分类</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/blog/tags">标签</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/blog/about">关于</a>
-        
-      </p>
-  </div>
-
-</header>
   
   <div id="container">
     <div id="wrap">
       
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/blog/css/images/newlogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/blog/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/blog/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/blog/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/blog/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/blog/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-编码"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-编码" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -226,123 +228,61 @@
     </div>
     <footer class="article-footer">
       
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-第一次分享"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/blog/2016/11/18/第一次分享/">第一篇分享</a>
-    </h1>
-  
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/blog/2017/05/25/编码/" data-title="" data-url="https://lid0.github.io/blog/blog/2017/05/25/编码/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/blog/2016/11/18/第一次分享/" class="article-date">
-	  <time datetime="2016-11-18T12:08:31.000Z" itemprop="datePublished">2016-11-18</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/blog/categories/Tec/">Tec</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​     <img src="\blog\Pic\first-share.jpg" alt=""></p>
-<p>​    几经周折终于有了自己的博客，希望以后能在这里和大家分享和交流。:)</p>
-<p>​    作为一个娱乐博主，没什么技术可以分享，所以下面就分享一下博客搭建的过程吧。老司机们可以绕路了。:applause:</p>
-<h2 id="一、安装软件"><a href="#一、安装软件" class="headerlink" title="一、安装软件"></a>一、安装软件</h2><p>​    受小伙伴们的推荐使用了Hexo来搭了这个静态的博客，同时避免了黑阔大佬们随手搞出个shell神马的。</p>
-<p>​    在windows上编辑文档比较方便，所以选择了把生成环境放在了windows上，首先下载git，git bash是一个简化的linux环境很好用。我们之后上传博客的时候也要需要Git的环境。关于Git安装，百度就可以很容易找到。</p>
-<p>​    接下来要安装nodeJS，官方网站下载地址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://nodejs.org/en/#download</div></pre></td></tr></table></figure>
-<p>​    下载安装后配置环境变量指向node.exe。接下来就可以用node –version来确认是否安装了。    </p>
-<p>​    下面安装npm，github上就有源码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/npm/npm</div></pre></td></tr></table></figure>
-<p>​    在npm文件夹下使用以下命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node cli.js install npm -gf</div></pre></td></tr></table></figure>
-<p>​    其中-gf是指全局安装。</p>
-<p>​    安装hexo同样是一句话命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure>
-<p>​    -g 的也是全局安装的意思。至此，需要的环境基本搭好了。</p>
-<h2 id="二、搭建本地博客"><a href="#二、搭建本地博客" class="headerlink" title="二、搭建本地博客"></a>二、搭建本地博客</h2><p>​    首先为你的博客新建一个文件夹，作为以后的工作基地。:) 命令行中输入:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<p>​    便可以初始化一个简单的hexo架构…[架构？]</p>
-<p>​    文件夹中的themes目录存放着你的主题，从官网上找一个你喜欢的主题吧!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://hexo.io/themes/</div></pre></td></tr></table></figure>
-<p>​    下载好了放到themes文件夹中，下面修改配置文件:_config.yml，自定义自己的博客。</p>
-<p>​    主要修改site下面的字段和主题名字，我选的主题是hiker，因为被这主题的外表所迷惑，调了整整两天才把它弄好。下面就以hiker为例子讲一下主题的配置。</p>
-<p>​    同样在_config.yml中可以自定义很多个性化的内容，比如颜色，图片和侧边栏的显示等等…每个主题会不一样。下面生成静态页面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">#等同于hexo g</div></pre></td></tr></table></figure>
-<p>​    生成好Blog后可以在本地查看效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo server</div><div class="line">#等同于hexo s</div></pre></td></tr></table></figure>
-<p>​    下面访问localhost:4000即可看到效果。</p>
-<p>​    那么问题来了：为毛我的主题没有Categories和tags页面。:disappointed:</p>
-<p>​    试过了好多百度，谷歌上的野路子[有些真的太野]，大多数效果都不好，都没有完全解决问题，最后只好求助模板作者，才将问题解决。</p>
-<p>​    问题是这样的，这个主题不会自己生成Categories、Tags以及About页面，需要自己手动建立页面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page &quot;categories&quot;</div></pre></td></tr></table></figure>
-<p>​    然后修改页面(index.md)中的配置参数，加入几个新的标签，如下：（这个主题的标签属性叫layout，其他主题可能会不一样）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Categories</div><div class="line">date: 2016-08-16 15:00:44</div><div class="line">layout: &quot;categories&quot;</div><div class="line">comments: false</div><div class="line">---</div></pre></td></tr></table></figure>
-<p>​    这样页面才会按照Categories的方式生成，Tags和About页面同理。</p>
-<h2 id="三、发布到Github"><a href="#三、发布到Github" class="headerlink" title="三、发布到Github"></a>三、发布到Github</h2><p>​    首先，要注册一个github账号，新建一个仓库（new repsoitory）。</p>
-<p>​    如果你的博客根目录下没有.git文件夹，那么要在根目录下git初始化：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure>
-<p>​    下面要让本地的git和远程仓库建立联系，利用SSH keys。</p>
-<p>​    先来检查本地是否有SSH-key，输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -ah ~/.ssh</div></pre></td></tr></table></figure>
-<p>​    如果本地没有SSH就要生成新的SSH key：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-key -t rsa -C &quot;(你的邮箱地址)&quot;</div></pre></td></tr></table></figure>
-<p>​    生成SSH key后，将用户路径下的/.ssh/id_rsa.pub文件中的内容复制到github设置中，在Github的Settings中，选择SSH and GPG keys，新建一个ssh key将刚刚生成的id_rsa.pub的内容复制到key中。这样就建立好了本地和远程的链接配置。</p>
-<p>​    接下来要在blog总的配置文件_config.yml中进行配置，这样每次用hexo deploy(hexo d)就可以将Blog上传到github:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/Lid0/Blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>​    repo字段就是仓库的地址，如果不清楚在github的仓库中就可以找到：</p>
-<p><img src="/blog/gallery/blog1-1.jpg" alt=""></p>
-<p>​    全部配置好了既可以使用hexo的命令上传了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div><div class="line">#hexo d</div></pre></td></tr></table></figure>
-<p>​    </p>
-<h2 id="四、Trouble-shooting"><a href="#四、Trouble-shooting" class="headerlink" title="四、Trouble shooting"></a>四、Trouble shooting</h2><p>​    搭好博客后遇到了一个没有加载css的问题，原因是仓库的名称不是(ID).github.io，这样在地址中就会多了一个路径如：lid0.github.io/blog/(多了一级Blog)，这是就要同时修改_config.yml中的URL部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://lid0.github.io</div><div class="line">root: /blog/</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<p>​    把root改成/blog/，这样css生成的路径就会和上传后的路径吻合了。</p>
-<p>​    以上是我搭博客时踩过的一些坑，因为第一次搭，所以没啥经验。如果有哪些地方写的不对，还请大神们指教。</p>
-<p>参考资料：</p>
-<p><a href="https://hexo.io/docs/" target="_blank" rel="external">https://hexo.io/docs/</a></p>
-<p><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">http://www.jianshu.com/p/858ecf233db9</a></p>
-<p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">http://www.jianshu.com/p/05289a4bc8b2</a></p>
 
       
-    </div>
-    <footer class="article-footer">
       
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Blog/">Blog</a></li></ul>
-
     </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/11/18/第一次分享/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">第一篇分享</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-
-
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x1-综述"><span class="nav-number">1.</span> <span class="nav-text">0x1 综述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符集"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码方式"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">编码方式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x2几种常见字符编码"><span class="nav-number">2.</span> <span class="nav-text">0x2几种常见字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#latin1"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">latin1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GB2312"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">GB2312</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBK"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">GBK</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#utf-8"><span class="nav-number">2.0.0.3.1.</span> <span class="nav-text">utf-8</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的字符编码问题"><span class="nav-number">3.</span> <span class="nav-text">常见的字符编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#网页乱码"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">网页乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#BOM头"><span class="nav-number">3.0.0.1.1.</span> <span class="nav-text">BOM头</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#由于编码问题导致的注入"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">由于编码问题导致的注入</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -436,9 +376,9 @@
 <script src="/blog/js/bootstrap.js"></script>
 
 
-  <script src="/blog/js/home.js"></script>
 
 
+  <script src="/blog/js/dialog.js"></script>
 
 
 
