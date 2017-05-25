@@ -216,9 +216,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​     <img src="\Blog\Pic\first-share.jpg" alt=""></p>
+        <p>​     <img src="\blog\Pic\first-share.jpg" alt=""></p>
 <p>​    几经周折终于有了自己的博客，希望以后能在这里和大家分享和交流。:)</p>
-<p>​    作为一个娱乐博主，没什么技术可以分享，所以下面就分享一下博客搭建的过程吧。老司机们可以绕路了。​:applause:​</p>
+<p>​    作为一个娱乐博主，没什么技术可以分享，所以下面就分享一下博客搭建的过程吧。老司机们可以绕路了。:applause:</p>
 <h2 id="一、安装软件"><a href="#一、安装软件" class="headerlink" title="一、安装软件"></a>一、安装软件</h2><p>​    受小伙伴们的推荐使用了Hexo来搭了这个静态的博客，同时避免了黑阔大佬们随手搞出个shell神马的。</p>
 <p>​    在windows上编辑文档比较方便，所以选择了把生成环境放在了windows上，首先下载git，git bash是一个简化的linux环境很好用。我们之后上传博客的时候也要需要Git的环境。关于Git安装，百度就可以很容易找到。</p>
 <p>​    接下来要安装nodeJS，官方网站下载地址：</p>
@@ -263,13 +263,13 @@
 <p>​    接下来要在blog总的配置文件_config.yml中进行配置，这样每次用hexo deploy(hexo d)就可以将Blog上传到github:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/Lid0/Blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <p>​    repo字段就是仓库的地址，如果不清楚在github的仓库中就可以找到：</p>
-<p><img src="/Blog/gallery/blog1-1.jpg" alt=""></p>
+<p><img src="/blog/gallery/blog1-1.jpg" alt=""></p>
 <p>​    全部配置好了既可以使用hexo的命令上传了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div><div class="line">#hexo d</div></pre></td></tr></table></figure>
 <p>​    </p>
 <h2 id="四、Trouble-shooting"><a href="#四、Trouble-shooting" class="headerlink" title="四、Trouble shooting"></a>四、Trouble shooting</h2><p>​    搭好博客后遇到了一个没有加载css的问题，原因是仓库的名称不是(ID).github.io，这样在地址中就会多了一个路径如：lid0.github.io/blog/(多了一级Blog)，这是就要同时修改_config.yml中的URL部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://lid0.github.io</div><div class="line">root: /Blog/</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<p>​    把root改成/Blog/，这样css生成的路径就会和上传后的路径吻合了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://lid0.github.io</div><div class="line">root: /blog/</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
+<p>​    把root改成/blog/，这样css生成的路径就会和上传后的路径吻合了。</p>
 <p>​    以上是我搭博客时踩过的一些坑，因为第一次搭，所以没啥经验。如果有哪些地方写的不对，还请大神们指教。</p>
 <p>参考资料：</p>
 <p><a href="https://hexo.io/docs/" target="_blank" rel="external">https://hexo.io/docs/</a></p>
