@@ -22,6 +22,7 @@
     <link rel="alternate" href="/atom.xml" title="spike&#39;s blog" type="application/atom+xml">
   
   <link rel="icon" href="/blog/css/images/newlogo.jpg">
+  <link rel="apple-touch-icon" href="/blog/css/images/newlogo.jpg">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -50,49 +51,25 @@
 
 </head>
 
-<body>
+
+
+  <body>
+
+
   
     <header id="header">
-  <!-- 
-    <div id="banner"></div>
-    <div id="header-outer" class="outer">
-      <div id="header-title" class="inner">
-        <h1 id="logo-wrap">
-          <a href="/blog/" id="logo">spike&#39;s blog</a>
-        </h1>
-        
-      </div>
-      <div id="header-inner" class="inner">
-        <nav id="main-nav">
-          <a id="main-nav-toggle" class="nav-icon"></a>
-          
-            <a class="main-nav-link" href="/blog/">首页</a>
-          
-            <a class="main-nav-link" href="/blog/archives">归档</a>
-          
-            <a class="main-nav-link" href="/blog/categories">分类</a>
-          
-            <a class="main-nav-link" href="/blog/tags">标签</a>
-          
-            <a class="main-nav-link" href="/blog/about">关于</a>
-          
-        </nav>
-        <nav id="sub-nav">
-          
-            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-          
-          <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-        </nav>
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lid0.github.io/blog"></form>
-        </div>
-      </div>
-    </div>
-  -->
-
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/blog/css/images/home-bg2.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+    <script>
+        var imgUrls = "css/images/home-bg2.jpg".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
+        } else {
+          document.getElementById("intrologo").style.backgroundImage='url(/blog/' + imgUrls[random] + ')';
+        }
+    </script>
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -303,11 +280,16 @@
   
 
   <div class="container">
-      <div class="row">
+      	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 spike&#39;s blog All Rights Reserved.</p>
-	      <p id="copyRightCn">_ 保留所有权利</p>
-	</div>
+	      
+	      
+  		   	<p id="copyRightCn">_ 保留所有权利</p>
+  		   
+		</div>
+
+		
   </div>
 </footer>
 
@@ -317,9 +299,14 @@
 <script>
     var wrapdiv = document.getElementById("wrap");
     var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
 
     wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
 </script>
     </div>
     <!-- <nav id="mobile-nav">
@@ -336,6 +323,10 @@
   
 </nav> -->
     
+
+
+
+
 
 <!-- mathjax config similar to math.stackexchange -->
 

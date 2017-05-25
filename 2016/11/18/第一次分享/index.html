@@ -40,6 +40,7 @@
     <link rel="alternate" href="/atom.xml" title="spike&#39;s blog" type="application/atom+xml">
   
   <link rel="icon" href="/blog/css/images/newlogo.jpg">
+  <link rel="apple-touch-icon" href="/blog/css/images/newlogo.jpg">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -70,7 +71,11 @@
 
 </head>
 
-<body>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
   
   <div id="container">
     <div id="wrap">
@@ -97,7 +102,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/blog/">首页</a> </li>
                 
@@ -286,11 +291,11 @@
 
 <!-- Table of Contents -->
 
-  <aside id="sidebar">
+  <aside id="toc-sidebar">
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装软件"><span class="toc-number">1.</span> <span class="toc-text">一、安装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、搭建本地博客"><span class="toc-number">2.</span> <span class="toc-text">二、搭建本地博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、发布到Github"><span class="toc-number">3.</span> <span class="toc-text">三、发布到Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Trouble-shooting"><span class="toc-number">4.</span> <span class="toc-text">四、Trouble shooting</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装软件"><span class="nav-number">1.</span> <span class="nav-text">一、安装软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、搭建本地博客"><span class="nav-number">2.</span> <span class="nav-text">二、搭建本地博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、发布到Github"><span class="nav-number">3.</span> <span class="nav-text">三、发布到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Trouble-shooting"><span class="nav-number">4.</span> <span class="nav-text">四、Trouble shooting</span></a></li></ol>
     
     </div>
   </aside>
@@ -302,11 +307,16 @@
   
 
   <div class="container">
-      <div class="row">
+      	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 spike&#39;s blog All Rights Reserved.</p>
-	      <p id="copyRightCn">_ 保留所有权利</p>
-	</div>
+	      
+	      
+  		   	<p id="copyRightCn">_ 保留所有权利</p>
+  		   
+		</div>
+
+		
   </div>
 </footer>
 
@@ -316,9 +326,14 @@
 <script>
     var wrapdiv = document.getElementById("wrap");
     var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
 
     wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
 </script>
     </div>
     <!-- <nav id="mobile-nav">
@@ -335,6 +350,10 @@
   
 </nav> -->
     
+
+
+
+
 
 <!-- mathjax config similar to math.stackexchange -->
 

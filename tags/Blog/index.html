@@ -22,6 +22,7 @@
     <link rel="alternate" href="/atom.xml" title="spike&#39;s blog" type="application/atom+xml">
   
   <link rel="icon" href="/blog/css/images/newlogo.jpg">
+  <link rel="apple-touch-icon" href="/blog/css/images/newlogo.jpg">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -54,7 +55,11 @@
 
 </head>
 
-<body>
+
+
+  <body>
+
+
   
   <div id="container">
     <div id="wrap">
@@ -81,7 +86,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/blog/">首页</a> </li>
                 
@@ -190,11 +195,16 @@
   
 
   <div class="container">
-      <div class="row">
+      	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 spike&#39;s blog All Rights Reserved.</p>
-	      <p id="copyRightCn">_ 保留所有权利</p>
-	</div>
+	      
+	      
+  		   	<p id="copyRightCn">_ 保留所有权利</p>
+  		   
+		</div>
+
+		
   </div>
 </footer>
 
@@ -204,9 +214,14 @@
 <script>
     var wrapdiv = document.getElementById("wrap");
     var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
 
     wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
 </script>
     </div>
     <!-- <nav id="mobile-nav">
@@ -223,6 +238,10 @@
   
 </nav> -->
     
+
+
+
+
 
 <!-- mathjax config similar to math.stackexchange -->
 
