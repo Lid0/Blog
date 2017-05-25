@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://lid0.github.io/blog/blog/gallery/coding/utf-8.1.jpg">
 <meta property="og:image" content="https://lid0.github.io/blog/blog/gallery/coding/utf-8.2.jpg">
 <meta property="og:image" content="https://lid0.github.io/blog/blog/gallery/coding/BOM.jpg">
-<meta property="og:updated_time" content="2017-05-25T07:03:34.497Z">
+<meta property="og:updated_time" content="2017-05-25T07:06:47.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码">
 <meta name="twitter:description" content="0x1 综述​    编码就是要将字符集映射到数字上，这样可以使计算机可以通过数字标识来知道其表示的字符。
@@ -193,37 +193,37 @@
 <h5 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h5><p>​    每个字符集都有其对应的编码方式，ascII字符集对应ascII编码。latin1字符集对应latin1编码等等。但是同一个字符集可能对应多个编码方式，unicode字符集就对应这utf-7，utf-8，utf-16等多种编码方式。</p>
 <p>​    各种字符集的出现是为了应对不同的需求，最早出现的字符集是ascII，latin1和ascII都是单字节编码，且latin1向下兼容ascII。</p>
 <h2 id="0x2几种常见字符编码"><a href="#0x2几种常见字符编码" class="headerlink" title="0x2几种常见字符编码"></a>0x2几种常见字符编码</h2><pre><code>##### ascII
-</code></pre><p>最早出现的字符编码是ascII1976年成立标准，标准ascII编码使用7位2进制数作为其编码范围，最高位为校验位共8为二进制数字（如’A’ =&gt; 0x41），编码范围为0x00-0x7F。所以是单字节的编码，所以共可以表示2^7=128种字符，对应表如下：</p>
+</code></pre><p>​    最早出现的字符编码是ascII1976年成立标准，标准ascII编码使用7位2进制数作为其编码范围，最高位为校验位共8为二进制数字（如’A’ =&gt; 0x41），编码范围为0x00-0x7F。所以是单字节的编码，所以共可以表示2^7=128种字符，对应表如下：</p>
 <p><img src="/blog/gallery/coding/ascII.jpg" alt="ascII"></p>
-<h5 id="latin1"><a href="#latin1" class="headerlink" title="latin1"></a>latin1</h5><p>latin1同ascII相同都是单字节编码。他向下兼容ascII。其编码范围为0x00-0xFF。其中0x00-0x7F和ascII一样，0x80-0x9F为控制字符，0xA0-0xFF是文字符号。</p>
+<h5 id="latin1"><a href="#latin1" class="headerlink" title="latin1"></a>latin1</h5><p>​    latin1同ascII相同都是单字节编码。他向下兼容ascII。其编码范围为0x00-0xFF。其中0x00-0x7F和ascII一样，0x80-0x9F为控制字符，0xA0-0xFF是文字符号。</p>
 <p><img src="/blog/gallery/coding/latin1.png" alt="latin1"></p>
-<h5 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h5><p>为解决汉子无法表示的问题中国退出了汉子编码，其中之一就是gb2312，共收录6763个汉字。GB2312中对汉字进行了分区管理，其中01-09为特殊符号，16-55为一级汉字，56-87为二级汉字</p>
-<h5 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h5><p>GBK收录了GB2312中没有收录完全的汉字，并且向下兼容GB2312。其编码范围为8140－FEFE。</p>
-<h6 id="utf-8"><a href="#utf-8" class="headerlink" title="utf-8"></a>utf-8</h6><p>utf-8编码是对unicode字符集的编码方式之一，与其字符集相同的编码方式还有utf-7，utf-16等。它是一种可变长度编码长度为1到6个字节。大部分字符最多只用3个字节以内就可以表示。其中编码的第一个字节和ascII兼容，所以单纯的ascII字符集中的utf-8编码的字符可以直接转换成ascII编码。</p>
-<p>utf-8的编码方式如下，第一个字节中前几位表示字符的长度，0表示只有一个字节，10表示有两个字节，110表示有三个字节，以此类推。</p>
+<h5 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h5><p>​    为解决汉子无法表示的问题中国退出了汉子编码，其中之一就是gb2312，共收录6763个汉字。GB2312中对汉字进行了分区管理，其中01-09为特殊符号，16-55为一级汉字，56-87为二级汉字</p>
+<h5 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h5><p>​    GBK收录了GB2312中没有收录完全的汉字，并且向下兼容GB2312。其编码范围为8140－FEFE。</p>
+<h6 id="utf-8"><a href="#utf-8" class="headerlink" title="utf-8"></a>utf-8</h6><p>​    utf-8编码是对unicode字符集的编码方式之一，与其字符集相同的编码方式还有utf-7，utf-16等。它是一种可变长度编码长度为1到6个字节。大部分字符最多只用3个字节以内就可以表示。其中编码的第一个字节和ascII兼容，所以单纯的ascII字符集中的utf-8编码的字符可以直接转换成ascII编码。</p>
+<p>​    utf-8的编码方式如下，第一个字节中前几位表示字符的长度，0表示只有一个字节，10表示有两个字节，110表示有三个字节，以此类推。</p>
 <p><img src="/blog/gallery/coding/utf-8.1.jpg" alt="utf-8.1"></p>
-<p>填充方式如下表所示，其中除了第一字节表示长度的字段外，其他按位填充。</p>
+<p>​    填充方式如下表所示，其中除了第一字节表示长度的字段外，其他按位填充。</p>
 <p><img src="/blog/gallery/coding/utf-8.2.jpg" alt="utf-8.2"></p>
-<p>由此我们就可以通过unicode编码来转换成utf-8编码了，如汉字’一’，unicode值为0x4E00，其范围在0x0800-&gt;0xFFFF之间。那么它将转换成3字节长度的utf-8编码值。首先转换成二进制为0100111000000000，将其拆分成三部分，0100_111000_000000分别放入三字节中编程11100100_10111000_10000000，由此的带utf-8编码后的字符0xE4B480。</p>
-<h2 id="常见的字符编码问题"><a href="#常见的字符编码问题" class="headerlink" title="常见的字符编码问题"></a>常见的字符编码问题</h2><h5 id="网页乱码"><a href="#网页乱码" class="headerlink" title="网页乱码"></a>网页乱码</h5><p>网页中常出现乱码的问题，除去返回包本身的问题外，其主要原因是浏览器没有对返回的数据包进行正确的解码，从而导致了乱码。</p>
-<p>可以在网站的meta字段中设置默认的编码，让浏览器使用默认的编码对数据包内容进行解码。</p>
+<p>​    由此我们就可以通过unicode编码来转换成utf-8编码了，如汉字’一’，unicode值为0x4E00，其范围在0x0800-&gt;0xFFFF之间。那么它将转换成3字节长度的utf-8编码值。首先转换成二进制为0100111000000000，将其拆分成三部分，0100_111000_000000分别放入三字节中编程11100100_10111000_10000000，由此的带utf-8编码后的字符0xE4B480。</p>
+<h2 id="常见的字符编码问题"><a href="#常见的字符编码问题" class="headerlink" title="常见的字符编码问题"></a>常见的字符编码问题</h2><h5 id="网页乱码"><a href="#网页乱码" class="headerlink" title="网页乱码"></a>网页乱码</h5><p>​    网页中常出现乱码的问题，除去返回包本身的问题外，其主要原因是浏览器没有对返回的数据包进行正确的解码，从而导致了乱码。</p>
+<p>​    可以在网站的meta字段中设置默认的编码，让浏览器使用默认的编码对数据包内容进行解码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;charset&quot; content=&quot;utf-8&quot;&gt;</div></pre></td></tr></table></figure>
-<p>除此之外也可以通过客户端指定解码方式。</p>
-<h6 id="BOM头"><a href="#BOM头" class="headerlink" title="BOM头"></a>BOM头</h6><p>BOM头（Byte order mark），windows下会用BOM头来标注文件的编码方式，其特点是在文件前头加入一些特定字符，如utf-8的文件头部会加入 0xEFBBBF。具体情况如下表：</p>
+<p>​    除此之外也可以通过客户端指定解码方式。</p>
+<h6 id="BOM头"><a href="#BOM头" class="headerlink" title="BOM头"></a>BOM头</h6><p>​    BOM头（Byte order mark），windows下会用BOM头来标注文件的编码方式，其特点是在文件前头加入一些特定字符，如utf-8的文件头部会加入 0xEFBBBF。具体情况如下表：</p>
 <p><img src="/blog/gallery/coding/BOM.jpg" alt="BOM"></p>
-<p>BOM头在文件的编码识别方面的确会有很多便利，但同时也产生了很多问题。如在编写PHP时，如果用记事本编辑后保存则会在PHP文件前加入BOM头：</p>
+<p>​    BOM头在文件的编码识别方面的确会有很多便利，但同时也产生了很多问题。如在编写PHP时，如果用记事本编辑后保存则会在PHP文件前加入BOM头：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">0xEF 0xBB 0xBF </div><div class="line">&lt;?php </div><div class="line">echo &apos;a&apos;;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>这样在网站中请求这个php时就会返回这样的结果：0xEF 0xBB 0xBF 0x61(‘a’)。从而导致非预期的输出。</p>
-<h5 id="由于编码问题导致的注入"><a href="#由于编码问题导致的注入" class="headerlink" title="由于编码问题导致的注入"></a>由于编码问题导致的注入</h5><p>由于编码问题导致的注入最臭名昭著的就是宽字节注入了。</p>
-<p>再正常的网站中通常会将特殊字符做转义处理，php中是addslashes()，它会将字符串中的单引号（’） ，双引号（“），反斜线（\）和NULL加上反斜线进行转义。有很多输入的数据会在做数据库查询前做这样的转义：</p>
+<p>​    这样在网站中请求这个php时就会返回这样的结果：0xEF 0xBB 0xBF 0x61(‘a’)。从而导致非预期的输出。</p>
+<h5 id="由于编码问题导致的注入"><a href="#由于编码问题导致的注入" class="headerlink" title="由于编码问题导致的注入"></a>由于编码问题导致的注入</h5><p>​    由于编码问题导致的注入最臭名昭著的就是宽字节注入了。</p>
+<p>​    再正常的网站中通常会将特殊字符做转义处理，php中是addslashes()，它会将字符串中的单引号（’） ，双引号（“），反斜线（\）和NULL加上反斜线进行转义。有很多输入的数据会在做数据库查询前做这样的转义：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a&apos;or 1=1 #     =&gt;    a\&apos;or 1=1 #</div></pre></td></tr></table></figure>
-<p>在以下情境中：select passwd from user where uname = ‘xxx’</p>
+<p>​    在以下情境中：select passwd from user where uname = ‘xxx’</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select passwd from user where uname = &apos;a&apos; or 1=1 #&apos;</div><div class="line">=&gt;</div><div class="line">select passwd from user where uname = &apos;a\&apos; or 1=1 #&apos;</div></pre></td></tr></table></figure>
-<p>这样使得单引号不能达到闭合字符串的目的，从而缓解被sql注入的威胁。</p>
-<p>这种防御方式在某种程度上可以被绕过，其中之一就是宽字节注入：</p>
-<p>举一个例子：</p>
+<p>​    这样使得单引号不能达到闭合字符串的目的，从而缓解被sql注入的威胁。</p>
+<p>​    这种防御方式在某种程度上可以被绕过，其中之一就是宽字节注入：</p>
+<p>​    举一个例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$username=$_REQUEST[&apos;username&apos;];</div><div class="line">$password=md5($_REQUEST[&apos;password&apos;]);</div><div class="line">$sql=&quot;select count(*) as num from admin where name=&apos;&quot;.addslashes($username).&quot;&apos; and pass=&apos;&quot;.$password.&quot;&apos;&quot;;</div></pre></td></tr></table></figure>
-<p>若数据库中的编码方式是GBK或GB2312等双字节的编码格式，那么我们输入的任何非单子节字符都会被当作双字节处理，如我们在传参数username=a%df%27or%201=1&amp;password=1这样的字符串时，addslashes()函数只负责将（‘）前加反斜杠加入之后的username字符串变为a%df\’or 1=1</p>
+<p>​    若数据库中的编码方式是GBK或GB2312等双字节的编码格式，那么我们输入的任何非单子节字符都会被当作双字节处理，如我们在传参数username=a%df%27or%201=1&amp;password=1这样的字符串时，addslashes()函数只负责将（‘）前加反斜杠加入之后的username字符串变为a%df\’or 1=1</p>
 
       
     </div>
